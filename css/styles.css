@@ -1314,3 +1314,82 @@ summary:focus-visible,
     filter: invert(1) grayscale(100%) brightness(200%);
   }
 }
+
+/* ==========================================================
+   Alto contraste (segue a preferência do sistema)
+   ========================================================== */
+@media (prefers-contrast: more) and (prefers-color-scheme: light) {
+  :root {
+    --borda-contraste: #000000;
+    --texto: #000000;
+    --texto-suave: #1a1a17;
+    --azul-noturno: #16202b;
+    --sombra: none;
+  }
+
+  .destaque-texto,
+  .destaque-etiqueta,
+  .contato-painel p,
+  .numero-legenda {
+    color: #ffffff;
+  }
+
+  ::placeholder {
+    color: #45453f;
+  }
+
+  .campo-erro {
+    color: #7a0f08;
+  }
+}
+
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root {
+    --borda-contraste: #ffffff;
+    --texto: #ffffff;
+    --texto-suave: #ffffff;
+    --escuro-titulo: #ffffff;
+    --escuro-borda: #ffffff;
+    --sombra: none;
+  }
+
+  ::placeholder {
+    color: #d5dde5;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .projeto-item,
+  .doacao-metodo,
+  .pergunta,
+  blockquote,
+  .contato-dados,
+  .formulario fieldset,
+  .cadastros-salvos,
+  .nav-sublista,
+  .modal-content,
+  .numero-item,
+  .alerta {
+    border: 2px solid var(--borda-contraste);
+  }
+
+  .campo input,
+  .campo select,
+  .campo textarea {
+    border: 2px solid var(--borda-contraste);
+  }
+
+  .sobre-texto a,
+  .alerta a,
+  .link-botao {
+    text-decoration: underline;
+  }
+
+  a:focus-visible,
+  summary:focus-visible,
+  .campo input:focus,
+  .campo select:focus,
+  .campo textarea:focus {
+    outline-width: 4px;
+  }
+}
