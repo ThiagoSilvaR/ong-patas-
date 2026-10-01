@@ -1,0 +1,40 @@
+/* Reset mínimo: remove margens padrão e uniformiza o comportamento dos elementos */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body,
+h1, h2, h3, p, ul, ol, figure, blockquote, fieldset {
+  margin: 0;
+}
+
+ul, ol {
+  padding-left: 1.25rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+
+summary {
+  cursor: pointer;
+}
