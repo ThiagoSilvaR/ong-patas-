@@ -754,7 +754,7 @@ blockquote cite {
   font-size: var(--fonte-3);
   color: var(--texto);
   background-color: var(--areia);
-  border: 2px solid #e6d8c6;
+  border: 2px solid #7f7f74;
   border-radius: 12px;
   transition: border-color var(--transicao), box-shadow var(--transicao), background-color var(--transicao);
 }
@@ -1117,5 +1117,279 @@ nav a[aria-current="page"] {
   * {
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Acessibilidade: link para pular ao conteúdo (WCAG 2.4.1) */
+.link-pular {
+  position: absolute;
+  top: -100px;
+  left: var(--espaco-4);
+  z-index: 100;
+  padding: var(--espaco-3) var(--espaco-5);
+  border-radius: 8px;
+  background-color: var(--azul-noturno);
+  color: var(--branco);
+  font-weight: 700;
+}
+
+.link-pular:focus {
+  top: var(--espaco-2);
+  outline: 3px solid var(--branco);
+  outline-offset: 2px;
+}
+
+/* Acessibilidade: contraste e foco visível (WCAG 1.4.3, 1.4.11 e 2.4.7) */
+::placeholder {
+  color: #67675f;
+  opacity: 1;
+}
+
+a:focus-visible,
+summary:focus-visible,
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: 3px solid var(--azul-suave);
+  outline-offset: 2px;
+}
+
+/* ==========================================================
+   Modo escuro automático (segue a preferência do sistema)
+   ========================================================== */
+:root {
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --escuro-fundo: #11161c;
+    --escuro-fundo-2: #151c24;
+    --escuro-superficie: #1a222b;
+    --escuro-borda: #8a9bad;
+    --escuro-linha: #33414f;
+    --escuro-titulo: #ffc9a0;
+    --escuro-acento: #ffa56b;
+    --texto: #e9eef3;
+    --texto-suave: #b8c4d0;
+    --sombra: 0 10px 30px rgba(0, 0, 0, 0.45);
+  }
+
+  body {
+    background-color: var(--escuro-fundo);
+  }
+
+  h1, h2, h3,
+  .marca,
+  .menu-hamburguer,
+  .pergunta summary,
+  .doacao-tabela th,
+  .contato-dados strong,
+  .formulario legend,
+  .modal-title {
+    color: var(--escuro-titulo);
+  }
+
+  .cabecalho,
+  .nav-sublista,
+  .projeto-item,
+  .doacao-metodo,
+  .pergunta,
+  blockquote,
+  .contato-dados,
+  .formulario fieldset,
+  .cadastros-salvos,
+  .modal-content {
+    background-color: var(--escuro-superficie);
+  }
+
+  .projetos,
+  .perguntas,
+  .depoimentos {
+    background-color: var(--escuro-fundo-2);
+  }
+
+  .modal-content {
+    color: var(--texto);
+  }
+
+  .valor-icone,
+  .menu-hamburguer {
+    background-color: var(--escuro-linha);
+  }
+
+  .doacao-tabela td,
+  .valores {
+    border-color: var(--escuro-linha);
+  }
+
+  nav a[aria-current="page"],
+  nav a:hover {
+    background-color: var(--escuro-linha);
+    color: var(--escuro-titulo);
+  }
+
+  blockquote cite {
+    color: var(--escuro-acento);
+  }
+
+  a:focus-visible,
+  summary:focus-visible,
+  .link-botao:focus-visible,
+  .menu-chave:focus-visible + .menu-hamburguer,
+  .pergunta summary:focus-visible,
+  .campo input:focus,
+  .campo select:focus,
+  .campo textarea:focus {
+    outline-color: var(--escuro-titulo);
+  }
+
+  .campo input,
+  .campo select,
+  .campo textarea {
+    background-color: var(--escuro-fundo);
+    border-color: var(--escuro-borda);
+    color: var(--texto);
+  }
+
+  .campo input:focus,
+  .campo select:focus,
+  .campo textarea:focus {
+    background-color: var(--escuro-fundo);
+    border-color: var(--escuro-titulo);
+  }
+
+  .campo input:disabled,
+  .campo select:disabled,
+  .campo textarea:disabled {
+    background-color: var(--escuro-linha);
+    color: var(--texto-suave);
+  }
+
+  ::placeholder {
+    color: #a9b6c3;
+  }
+
+  .campo input[aria-invalid="false"]:not(:placeholder-shown),
+  .campo select[aria-invalid="false"],
+  .campo textarea[aria-invalid="false"]:not(:placeholder-shown) {
+    border-color: #6fcf97;
+  }
+
+  .campo input[aria-invalid="true"],
+  .campo select[aria-invalid="true"],
+  .campo textarea[aria-invalid="true"] {
+    border-color: #ff7b70;
+  }
+
+  .campo-erro {
+    color: #ffa9a2;
+  }
+
+  .alerta-informacao { background-color: #14283b; color: #cfe6fa; }
+  .alerta-sucesso    { background-color: #15291f; color: #c9efd8; }
+  .alerta-aviso      { background-color: #33290f; color: #ffe9a8; }
+  .alerta-perigo     { background-color: #33171a; color: #ffd6d2; }
+
+  .botao:disabled {
+    background-color: var(--escuro-linha);
+    color: var(--texto-suave);
+  }
+
+  .cadastros-salvos .botao {
+    color: #ffa9a2;
+    box-shadow: inset 0 0 0 2px #ffa9a2;
+  }
+
+  .cadastros-salvos .botao:hover {
+    background-color: #33171a;
+  }
+
+  .chave-pix {
+    background-color: var(--escuro-linha);
+    color: var(--escuro-titulo);
+  }
+
+  .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+  }
+}
+
+/* ==========================================================
+   Alto contraste (segue a preferência do sistema)
+   ========================================================== */
+@media (prefers-contrast: more) and (prefers-color-scheme: light) {
+  :root {
+    --borda-contraste: #000000;
+    --texto: #000000;
+    --texto-suave: #1a1a17;
+    --azul-noturno: #16202b;
+    --sombra: none;
+  }
+
+  .destaque-texto,
+  .destaque-etiqueta,
+  .contato-painel p,
+  .numero-legenda {
+    color: #ffffff;
+  }
+
+  ::placeholder {
+    color: #45453f;
+  }
+
+  .campo-erro {
+    color: #7a0f08;
+  }
+}
+
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root {
+    --borda-contraste: #ffffff;
+    --texto: #ffffff;
+    --texto-suave: #ffffff;
+    --escuro-titulo: #ffffff;
+    --escuro-borda: #ffffff;
+    --sombra: none;
+  }
+
+  ::placeholder {
+    color: #d5dde5;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .projeto-item,
+  .doacao-metodo,
+  .pergunta,
+  blockquote,
+  .contato-dados,
+  .formulario fieldset,
+  .cadastros-salvos,
+  .nav-sublista,
+  .modal-content,
+  .numero-item,
+  .alerta {
+    border: 2px solid var(--borda-contraste);
+  }
+
+  .campo input,
+  .campo select,
+  .campo textarea {
+    border: 2px solid var(--borda-contraste);
+  }
+
+  .sobre-texto a,
+  .alerta a,
+  .link-botao {
+    text-decoration: underline;
+  }
+
+  a:focus-visible,
+  summary:focus-visible,
+  .campo input:focus,
+  .campo select:focus,
+  .campo textarea:focus {
+    outline-width: 4px;
   }
 }
