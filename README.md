@@ -4,6 +4,8 @@ Site de uma ONG fictícia de proteção animal, feito como uma SPA em HTML, CSS 
 
 **Site publicado:** https://thiagosilvar.github.io/ong-patas-/
 
+**Versão:** 1.0.0
+
 ## Requisitos
 
 - Navegador atual e internet (o Bootstrap vem de um CDN).
