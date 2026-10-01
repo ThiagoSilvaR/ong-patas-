@@ -754,7 +754,7 @@ blockquote cite {
   font-size: var(--fonte-3);
   color: var(--texto);
   background-color: var(--areia);
-  border: 2px solid #e6d8c6;
+  border: 2px solid #7f7f74;
   border-radius: 12px;
   transition: border-color var(--transicao), box-shadow var(--transicao), background-color var(--transicao);
 }
@@ -1136,5 +1136,20 @@ nav a[aria-current="page"] {
 .link-pular:focus {
   top: var(--espaco-2);
   outline: 3px solid var(--branco);
+  outline-offset: 2px;
+}
+
+/* Acessibilidade: contraste e foco visível (WCAG 1.4.3, 1.4.11 e 2.4.7) */
+::placeholder {
+  color: #67675f;
+  opacity: 1;
+}
+
+a:focus-visible,
+summary:focus-visible,
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: 3px solid var(--azul-suave);
   outline-offset: 2px;
 }
